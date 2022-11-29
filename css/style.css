@@ -8,3 +8,17 @@ body{
     max-width: 500px;
     justify-content: center;
 }
+
+.list-group-item{
+    cursor: pointer;
+}
+
+.list-group-item span{
+    display: block;
+    width: 80%;
+}
+
+.input-group{
+    margin: 0 auto;
+    max-width: 500px;
+}
