@@ -25,7 +25,7 @@ if (isset($_POST["done"])) {
 
 if (isset($_POST["removeIndex"])) {
     $remove_index = intval($_POST["removeIndex"]);
-    unset($todo_list[$remove_index]);
+    array_splice($todo_list, $remove_index, 1);
 
     // Scriviamo il file json
     file_put_contents("todo.json", json_encode($todo_list));
