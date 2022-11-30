@@ -12,18 +12,12 @@ if (isset($_POST["text"])) {
 
     // Scriviamo il file json
     file_put_contents("todo.json", json_encode($todo_list));
-}
-
-if (isset($_POST["done"])) {
-    $new_done = $_POST["done"] == "true" ? true : false;
-
-    $todo_list[$_POST["index"]]["done"] = $new_done;
+} elseif (isset($_POST["indexToggle"])) {
+    $todo_list[$_POST["indexToggle"]]["done"] = !$todo_list[$_POST["indexToggle"]]["done"];
 
     // Scriviamo il file json
     file_put_contents("todo.json", json_encode($todo_list));
-}
-
-if (isset($_POST["removeIndex"])) {
+} elseif (isset($_POST["removeIndex"])) {
     $remove_index = intval($_POST["removeIndex"]);
     array_splice($todo_list, $remove_index, 1);
 

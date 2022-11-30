@@ -30,11 +30,8 @@ createApp({
             }
         },
         toggleTask(index){
-            this.todoList[index].done = !this.todoList[index].done;
-
             const data = {
-                index,
-                done: this.todoList[index].done
+                indexToggle: index,
             }
 
             //Facciamo la chiamata ad axios
