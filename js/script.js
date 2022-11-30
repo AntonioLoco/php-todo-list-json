@@ -9,20 +9,25 @@ createApp({
     },
     methods: {
         addTask(){
-            //Creiamo il data da inviare nel post
-            const data = {
-                text: this.newTask
-            }
+            if(this.newTask.length > 0){
+                //Creiamo il data da inviare nel post
+                const data = {
+                    text: this.newTask
+                }
+    
+                //Facciamo la chiamata ad axios
+                axios
+                    .post("server.php", data, 
+                    {
+                        headers: {"Content-Type": "multipart/form-data"}
+                    })
+                    .then( resp => {
+                        this.todoList = resp.data;
 
-            //Facciamo la chiamata ad axios
-            axios
-                .post("server.php", data, 
-                {
-                    headers: {"Content-Type": "multipart/form-data"}
-                })
-                .then( resp => {
-                    this.todoList = resp.data;
-                });
+                    });
+
+                this.newTask = "";
+            }
         },
         toggleTask(index){
             this.todoList[index].done = !this.todoList[index].done;

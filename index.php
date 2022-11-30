@@ -37,7 +37,7 @@
             </ul>
 
             <div class="input-group justify-content-center mt-5">
-                <input class="form-control" type="text" v-model="newTask">
+                <input class="form-control" type="text" v-model.trim="newTask">
                 <button @click="addTask" class="btn btn-primary">Add Task <i class="fa-solid fa-plus"></i></button>
             </div>
         </div>
